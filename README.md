@@ -1,184 +1,164 @@
-![Alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/255px-Flag_of_the_United_Kingdom_%281-2%29.svg.png)
+<p align="center">
+  <img src="https://www.especial.gr/wp-content/uploads/2019/03/panepisthmio-dut-attikhs.png" alt="UNIWA" width="150"/>
+</p>
 
-# POSIX Threads - "What A Wonderful World!" Program 
+<p align="center">
+  <strong>UNIVERSITY OF WEST ATTICA</strong><br>
+  SCHOOL OF ENGINEERING<br>
+  DEPARTMENT OF COMPUTER ENGINEERING AND INFORMATICS
+</p>
 
-For the requested Assignment, click the link:
-[Assignment](Assignment/)
+---
 
-For the detailed Source Codes, click the link:
-[Code](Code/)
+<p align="center">
+  <strong>Operating Systems II</strong>
+</p>
 
-## Course Information
-- **Course**: [Operating Systems II](https://ice.uniwa.gr/education/undergraduate/courses/operating-systems-ii/)
-- **Semester**: 4
-- **Program of Study**: [UNIWA](https://www.uniwa.gr/)
-- **Department**: [Informatics and Computer Engineering](https://ice.uniwa.gr/)
-- **Lab Instructor**: [Psarras Nikolaos](https://ice.uniwa.gr/emd_person/20879/)
-- **Academic Season**: 2021-2022
+<h1 align="center">
+  POSIX Threads - "What A Wonderful World!" Program
+</h1>
 
-## Student Information
-- **Name**: Athanasiou Vasileios Evangelos
-- **Student ID**: 19390005
-- **Status**: Undergraduate
+<p align="center">
+  <strong>Vasileios Evangelos Athanasiou</strong><br>
+  Student ID: 19390005
+</p>
 
-## Assignment Title
-**Title**: POSIX Threads-based Synchronization for Printing Sequence "What A Wonderful World!"
+<p align="center">
+  <a href="https://github.com/Ath21" target="_blank">GitHub</a> ·
+  <a href="https://www.linkedin.com/in/vasilis-athanasiou-7036b53a4/" target="_blank">LinkedIn</a>
+</p>
 
-## Assignment Overview
+<hr/>
 
-This project involves creating a program that uses **POSIX Threads** and **synchronization mechanisms** to repeatedly print the phrase:
+<p align="center">
+  <strong>Supervision</strong>
+</p>
 
-`What A Wonderful World!`
+<p align="center">
+  Supervisor: Vasileios Mamalis, Professor
+</p>
+<p align="center">
+  <a href="https://ice.uniwa.gr/en/emd_person/vassilios-mamalis/" target="_blank">UNIWA Profile</a>
+</p>
 
-The phrase will be printed continuously by three separate threads, with each thread responsible for printing a specific word in the sequence:
-- **Thread 1**: Prints `"What A "`
-- **Thread 2**: Prints `"Wonderful "`
-- **Thread 3**: Prints `"World!"`
+<p align="center">
+  Co-supervisor: Nikolaos Psarras, Applications Lecturer
+</p>
 
-The program ensures the correct order of printing by using synchronization primitives. Two versions of the program are provided:
-1. **Version 1**: Using semaphores for synchronization.
-2. **Version 2**: Using condition variables for synchronization.
+<p align="center">
+  <a href="https://ice.uniwa.gr/en/emd_person/nikolaos-psarras/" target="_blank">UNIWA Profile</a> ·
+  <a href="https://www.linkedin.com/in/psarras-nikolas-20234183/" target="_blank">LinkedIn</a>
+</p>
+
+</hr>
+
+<p align="center">
+  Athens, June 2022
+</p>
+
+---
+
+# POSIX Threads – "What A Wonderful World!" Program
+
+This repository contains an assignment for **Operating Systems II**, focusing on thread synchronization using POSIX threads to repeatedly print the phrase:
+
+
+What A Wonderful World!
+
+
+---
+
+## Table of Contents
+
+| Section | Folder/File | Description |
+|------:|-------------|-------------|
+| 1 | `assign/` | Assignment material |
+| 1.1 | `assign/ASK-2B-OS-II-LAB-2021-22.png` | Assignment description in English |
+| 1.2 | `assign/ΑΣΚ-2Β-ΛΣ-ΙΙ-ΕΡΓ-2021-22.png` | Assignment description in Greek |
+| 2 | `src/` | Source code implementations |
+| 2.1 | `src/semaphores.c` | Semaphore-based synchronization |
+| 2.2 | `src/condition_vars.c` | Condition variable synchronization |
+| 3 | `README.md` | Repository documentation |
+
+---
+
+## Project Overview
+
+The project demonstrates synchronization techniques using **POSIX threads** to ensure correct printing order among multiple threads.
+
+Three threads cooperate:
+
+- Thread 1 prints `"What A "`
+- Thread 2 prints `"Wonderful "`
+- Thread 3 prints `"World!"`
+
+The program continuously prints the phrase in correct sequence.
+
+Two synchronization approaches are implemented:
+- Semaphore-based synchronization
+- Condition variable synchronization
+
+---
 
 ## Objectives
 
-- Implement **multi-threading** using the **POSIX threads** (`pthread`) library.
-- Use **semaphores** and **condition variables** to control synchronization between the threads.
-- Demonstrate how the threads communicate to print the sequence `"What A Wonderful World!"` in the correct order.
+- Implement multi-threaded execution using POSIX threads.
+- Synchronize thread execution order correctly.
+- Prevent race conditions using mutex protection.
+- Demonstrate synchronization techniques in practice.
 
-## Program Structure
-
-### Version 1: Using Semaphores
-- **POSIX Semaphores** (`sem_init`, `sem_wait`, `sem_post`) are used to control the execution sequence of threads.
-- Each thread prints its part of the phrase and signals the next thread using semaphores.
-- This version demonstrates semaphore-based synchronization, ensuring that the sequence is printed without race conditions.
-
-### Version 2: Using Condition Variables
-- **Condition Variables** (`pthread_cond_wait`, `pthread_cond_signal`, `pthread_cond_broadcast`) are used to manage synchronization between threads.
-- A condition variable is used to put threads into a waiting state until their turn comes to print their part of the phrase.
-- This version demonstrates condition variable-based synchronization, providing a different mechanism for thread communication.
+---
 
 ## Key Features
 
-- **Thread Synchronization**: Ensures that the threads execute in the correct order.
-- **Parallel Execution**: Multiple threads work together to print the sequence continuously.
-- **Mutex Protection**: The critical sections of code are protected using **mutexes** to prevent race conditions.
-- **Infinite Loop**: Threads run in an infinite loop to repeatedly print the phrase until manually terminated.
+- **Thread Cooperation**  
+  Multiple threads cooperate to print a single output sequence.
+
+- **Synchronization Control**  
+  Ensures proper execution order.
+
+- **Mutex Protection**  
+  Prevents race conditions in shared resources.
+
+- **Continuous Execution**  
+  Program runs until manually terminated.
+
+---
+
+## Program Structure
+
+1. Initialize synchronization mechanisms.
+2. Create three worker threads.
+3. Each thread prints its assigned word.
+4. Synchronization ensures proper printing order.
+5. Execution repeats indefinitely.
+
+---
 
 ## Requirements
 
-- **Operating System**: Linux-based OS or any Unix-like system that supports POSIX threads and semaphores.
-- **Compiler**: GCC (GNU Compiler Collection).
-- **Libraries**: POSIX Threads (`pthread`) and POSIX Semaphores (`semaphore.h` for the first version).
+- **Operating System:** Linux or Unix-like OS
+- **Compiler:** GCC
+- **Libraries:** POSIX Threads (`pthread`) and POSIX Semaphores
 
-## Compilation and Usage
+---
 
-### 1. Clone the Repository
-Download the repository to your local machine:
-```
+## Installation & Usage
+
+### 1. Clone Repository
+```bash
 git clone https://github.com/Operating-Systems-2-aka-Uniwa/Threads-Synchronization.git
+cd Threads-Synchronization
 ```
 
-### 2. Compile the source code
-Compile with gcc compiler the source codes and the flag `-pthread` to activate POSIX threads and `-lrt` to activate semaphores:
-```
+### 2. Compile Programs
+```bash
 gcc -o semaphores semaphores.c -lpthread -lrt
 gcc -o condition_vars condition_vars.c -pthread
 ```
-### 3. Run the code
-Execute the executable file:
-```
-./semaphores
-./condition_vars
-```
 
-![Alt text](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/255px-Flag_of_Greece.svg.png)
-
-# Πρόγραμμα POSIX Threads - "What a Wonderful World!"
-
-Για την ζητούμενη Άσκηση, κάντε κλικ στον σύνδεσμο:
-[Άσκηση](Assignment/)
-
-Για τους λεπτομερείς Πηγαίους Κώδικες, κάντε κλικ στον σύνδεσμο:
-[Κωδικός](Code/)
-
-## Πληροφορίες Μαθήματος
-- **Μάθημα**: [Λειτουργικά Συστήματα II](https://ice.uniwa.gr/education/undergraduate/courses/operating-systems-ii/)
-- **Εξάμηνο**: 4
-- **Πρόγραμμα Σπουδών**: [UNIWA](https://www.uniwa.gr/)
-- **Τμήμα**: [Πληροφορική και Μηχανική Υπολογιστών](https://ice.uniwa.gr/)
-- **Υπεύθυνος Εργαστηρίου**: [Ψαράς Νικόλαος](https://ice.uniwa.gr/emd_person/20879/)
-- **Ακαδημαϊκή Χρονιά**: 2021-2022
-
-## Πληροφορίες Φοιτητή
-- **Όνομα**: Αθανασίου Βασίλειος Ευάγγελος
-- **Αριθμός Μητρώου**: 19390005
-- **Κατάσταση**: Προπτυχιακός
-
-## Τίτλος Άσκησης
-**Τίτλος**: Συγχρονισμός με Βάση το POSIX Threads για την Εκτύπωση της Φράσης "Τι Υπέροχος Κόσμος!"
-
-## Επισκόπηση Άσκησης
-
-Αυτό το έργο περιλαμβάνει τη δημιουργία ενός προγράμματος που χρησιμοποιεί **POSIX Threads** και **μηχανισμούς συγχρονισμού** για να εκτυπώνει επανειλημμένα τη φράση:
-
-`What a Wonderful World!`
-
-Η φράση θα εκτυπώνεται συνεχώς από τρία ξεχωριστά νήματα, με κάθε νήμα υπεύθυνο για την εκτύπωση μιας συγκεκριμένης λέξης στη σειρά:
-- **Νήμα 1**: Εκτυπώνει `"What a Wonderful"`
-- **Νήμα 2**: Εκτυπώνει `"World"`
-- **Νήμα 3**: Εκτυπώνει `"!"`
-
-Το πρόγραμμα εξασφαλίζει τη σωστή σειρά εκτύπωσης χρησιμοποιώντας συγχρονιστικά primitives. Δύο εκδόσεις του προγράμματος παρέχονται:
-1. **Έκδοση 1**: Χρησιμοποιώντας σημαφόρους για συγχρονισμό.
-2. **Έκδοση 2**: Χρησιμοποιώντας μεταβλητές κατάστασης για συγχρονισμό.
-
-## Στόχοι
-
-- Υλοποίηση **πολυνηματικής εκτέλεσης** χρησιμοποιώντας τη βιβλιοθήκη **POSIX threads** (`pthread`).
-- Χρήση **σημαφόρων** και **μεταβλητών κατάστασης** για τον έλεγχο του συγχρονισμού μεταξύ των νημάτων.
-- Επίδειξη του τρόπου επικοινωνίας των νημάτων για την εκτύπωση της φράσης `"Τι Υπέροχος Κόσμος!"` στη σωστή σειρά.
-
-## Δομή Προγράμματος
-
-### Έκδοση 1: Χρήση Σημαφόρων
-- **POSIX Σημαφόροι** (`sem_init`, `sem_wait`, `sem_post`) χρησιμοποιούνται για τον έλεγχο της σειράς εκτέλεσης των νημάτων.
-- Κάθε νήμα εκτυπώνει το μέρος της φράσης και ειδοποιεί το επόμενο νήμα χρησιμοποιώντας σημαφόρους.
-- Αυτή η έκδοση επιδεικνύει τον συγχρονισμό με βάση σημαφόρους, διασφαλίζοντας ότι η σειρά εκτύπωσης γίνεται χωρίς συνθήκες ανταγωνισμού.
-
-### Έκδοση 2: Χρήση Μεταβλητών Κατάστασης
-- **Μεταβλητές Κατάστασης** (`pthread_cond_wait`, `pthread_cond_signal`, `pthread_cond_broadcast`) χρησιμοποιούνται για τη διαχείριση του συγχρονισμού μεταξύ των νημάτων.
-- Μια μεταβλητή κατάστασης χρησιμοποιείται για να τοποθετήσει τα νήματα σε κατάσταση αναμονής μέχρι να έρθει η σειρά τους να εκτυπώσουν το μέρος της φράσης.
-- Αυτή η έκδοση επιδεικνύει τον συγχρονισμό με βάση μεταβλητές κατάστασης, παρέχοντας έναν διαφορετικό μηχανισμό για την επικοινωνία των νημάτων.
-
-## Κύρια Χαρακτηριστικά
-
-- **Συγχρονισμός Νημάτων**: Εξασφαλίζει ότι τα νήματα εκτελούνται στη σωστή σειρά.
-- **Παράλληλη Εκτέλεση**: Πολλαπλά νήματα συνεργάζονται για να εκτυπώσουν τη φράση συνεχώς.
-- **Προστασία Μεταβλητών**: Οι κρίσιμες περιοχές κώδικα προστατεύονται με τη χρήση **mutex** για να αποφεύγονται οι συνθήκες ανταγωνισμού.
-- **Ατέρμον Βρόχος**: Τα νήματα εκτελούνται σε ατέρμον βρόχο για να εκτυπώνουν επανειλημμένα τη φράση μέχρι να τερματιστούν χειροκίνητα.
-
-## Απαιτήσεις
-
-- **Λειτουργικό Σύστημα**: Λειτουργικό σύστημα βασισμένο σε Linux ή οποιοδήποτε Unix-like σύστημα που υποστηρίζει POSIX threads και σημαφόρους.
-- **Μεταγλωττιστής**: GCC (GNU Compiler Collection).
-- **Βιβλιοθήκες**: POSIX Threads (`pthread`) και POSIX Σημαφόροι (`semaphore.h` για την πρώτη έκδοση).
-
-## Εγκατάσταση και Χρήση
-
-### 1. Κλωνοποιήστε το Αποθετήριο
-Κατεβάστε το αποθετήριο στον τοπικό σας υπολογιστή:
-```
-git clone https://github.com/Operating-Systems-2-aka-Uniwa/Threads-Synchronization.git
-```
-### 2. Μεταγλωττίστε τον Πηγαίο Κώδικα
-Συγκεντρώστε τους πηγαίους κώδικες με τον μεταγλωττιστή gcc και τη σημαία `-pthread` για να ενεργοποιήσετε τα POSIX threads και `-lrt` για να ενεργοποιήσετε τους σημαφόρους:
-```
-gcc -o semaphores semaphores.c -lpthread -lrt
-gcc -o condition_vars condition_vars.c -pthread
-```
-### 3. Εκτελέστε τον Κώδικα
-Εκτελέστε το εκτελέσιμο αρχείο:
-```
+### 3. Run Programs
+```bash
 ./semaphores
 ./condition_vars
 ```
