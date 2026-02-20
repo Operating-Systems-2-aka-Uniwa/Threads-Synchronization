@@ -71,79 +71,41 @@
 
 ---
 
-# README
+# INSTALL
 
 ## POSIX Threads Synchronization - Semaphores, Condition Variables
 
-This repository contains an assignment for **Operating Systems II**, focusing on thread synchronization using POSIX threads to repeatedly print the phrase:
-
-What A Wonderful World!
+This guide explains how to set up, build, and run the project on your local machine.
 
 ---
 
-## Table of Contents
+## 1. Requirements
 
-| Section | Folder/File                           | Description                        |
-| ------: | ------------------------------------- | ---------------------------------- |
-|       1 | `assign/`                             | Assignment material                |
-|     1.1 | `assign/ASK-2B-OS-II-LAB-2021-22.png` | Assignment description in English  |
-|     1.2 | `assign/ΑΣΚ-2Β-ΛΣ-ΙΙ-ΕΡΓ-2021-22.png` | Assignment description in Greek    |
-|       2 | `src/`                                | Source code implementations        |
-|     2.1 | `src/semaphores.c`                    | Semaphore-based synchronization    |
-|     2.2 | `src/condition_vars.c`                | Condition variable synchronization |
-|       3 | `README.md`                           | Project documentation              |
-|       4 | `INSTALL.md`                          | Usage instructions                 |
+- **Operating System:** Linux or Unix-like OS
+- **Compiler:** GCC
+- **Libraries:** POSIX Threads (`pthread`) and POSIX Semaphores
 
 ---
 
-## 1. Project Overview
+## 2. Installation & Usage
 
-The project demonstrates synchronization techniques using **POSIX threads** to ensure correct printing order among multiple threads.
+### 2.1 Clone Repository
 
-Three threads cooperate:
+```bash
+git clone https://github.com/Operating-Systems-2-aka-Uniwa/Threads-Synchronization.git
+cd Threads-Synchronization
+```
 
-- Thread 1 prints `"What A "`
-- Thread 2 prints `"Wonderful "`
-- Thread 3 prints `"World!"`
+### 2.2 Compile Programs
 
-The program continuously prints the phrase in correct sequence.
+```bash
+gcc -o semaphores semaphores.c -lpthread -lrt
+gcc -o condition_vars condition_vars.c -pthread
+```
 
-Two synchronization approaches are implemented:
+### 2.3 Run Programs
 
-- Semaphore-based synchronization
-- Condition variable synchronization
-
----
-
-## 2. Objectives
-
-- Implement multi-threaded execution using POSIX threads.
-- Synchronize thread execution order correctly.
-- Prevent race conditions using mutex protection.
-- Demonstrate synchronization techniques in practice.
-
----
-
-## 3. Key Features
-
-- **Thread Cooperation**  
-  Multiple threads cooperate to print a single output sequence.
-
-- **Synchronization Control**  
-  Ensures proper execution order.
-
-- **Mutex Protection**  
-  Prevents race conditions in shared resources.
-
-- **Continuous Execution**  
-  Program runs until manually terminated.
-
----
-
-## 4. Program Structure
-
-1. Initialize synchronization mechanisms.
-2. Create three worker threads.
-3. Each thread prints its assigned word.
-4. Synchronization ensures proper printing order.
-5. Execution repeats indefinitely.
+```bash
+./semaphores
+./condition_vars
+```
